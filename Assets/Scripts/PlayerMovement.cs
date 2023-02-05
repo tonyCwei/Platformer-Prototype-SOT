@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     
     
     public bool isAlive = true;
+    public bool gameEnded = false;
     public bool isInvin = false;
     public bool isRevivable = true;
     public bool isHit = false;
@@ -73,11 +75,15 @@ public class PlayerMovement : MonoBehaviour
     
     public Vector2 moveInput;
     public Rigidbody2D myRigidbody;
-    Animator anima;
+    public Animator anima;
     CapsuleCollider2D myBodyCollider;
     BoxCollider2D myFeetCollider;
     CircleCollider2D myDeathCollider;
     SpriteRenderer mySpriteRenderer;
+
+    public GameObject endMenu;
+    public GameObject inGameMenu;
+    public TMP_Text endText;
    
 
     // Start is called before the first frame update
@@ -108,10 +114,11 @@ public class PlayerMovement : MonoBehaviour
                      || anima.GetCurrentAnimatorStateInfo(0).IsName("HeavyAttack");
         playerHasVertialSpeed = Mathf.Abs(myRigidbody.velocity.y) > 0.01;
         playHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > 0.01;
+        isRevivable = myPlayerState.deathRewindCount > 0  && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"));
 
         
         
-        if (!isAlive || isHit) {return;}
+        if (!isAlive || isHit || gameEnded) {return;}
         Run();
         FlipSprite();
         JumpAnimation();
@@ -128,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (!isAlive) {return;}
+        if (!isAlive || gameEnded) {return;}
 
 
         if (isRewinding) {
@@ -180,7 +187,7 @@ public class PlayerMovement : MonoBehaviour
    // Jump is different from move, when moving, key keeps being pressed. When jump, it only 
    //  needs to pressed once
     void OnJump(InputValue value) {
-        if (!isAlive || isRolling|| isRewinding || isHit) {return;}
+        if (!isAlive || isRolling|| isRewinding || isHit|| gameEnded) {return;}
 
         if (value.isPressed && isGrounded) {
             anima.SetTrigger("jump");
@@ -236,7 +243,7 @@ void ClimbLadder(){
 
 //Roll
 void OnRoll(InputValue value) {
-    if(!isAlive || !isGrounded || isRolling || isAttcking || isRewinding || isHit ) {return;}
+    if(!isAlive || !isGrounded || isRolling || isAttcking || isRewinding || isHit || gameEnded) {return;}
 
  
 
@@ -285,7 +292,7 @@ Physics2D.IgnoreLayerCollision(11,8,false);
 
 // Attack
   void OnLightAttack(InputValue value) {
-     if (!isAlive || isRolling || isRewinding || attackBlocked || isHit || myPlayerState.currStamina < lightAttackStamina) {return;}
+     if (!isAlive || isRolling || isRewinding || attackBlocked || isHit || myPlayerState.currStamina < lightAttackStamina || gameEnded) {return;}
      if (!isGrounded && isClimbing) {
         return;
      }
@@ -321,7 +328,7 @@ Physics2D.IgnoreLayerCollision(11,8,false);
 // HeavyAttack
 
   void OnHeavyAttack(InputValue value) {
-     if (!isAlive || isRolling || isRewinding || attackBlocked || isHit || myPlayerState.currStamina < heavyAttackStamina) {return;}
+     if (!isAlive || isRolling || isRewinding || attackBlocked || isHit || myPlayerState.currStamina < heavyAttackStamina || gameEnded) {return;}
      if (!isGrounded && isClimbing) {
         return;
      }
@@ -411,38 +418,41 @@ IEnumerator HitInvin(){
 void Die() { 
 //    if(isInvin) {return;} 
 
-   if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")) || myPlayerState.currHealth <= 0) {
+//    if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")) || myPlayerState.currHealth <= 0) {
        
-      Physics2D.IgnoreLayerCollision(11,8,true);
+//       Physics2D.IgnoreLayerCollision(11,8,true);
 
-      if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"))) {
+//       if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"))) {
+//         myPlayerState.currHealth = 0;
+//         isRevivable = false;
+//       }
+
+if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"))) {
         myPlayerState.currHealth = 0;
-        isRevivable = false;
-      }
+    }
 
+if (myPlayerState.currHealth <= 0) {
+       
+    Physics2D.IgnoreLayerCollision(11,8,true);
 
-    
     isAlive = false;
     moveInput = new Vector2(0,0);
     myRigidbody.velocity = new Vector2(0,deathKick);
-   
-   
-
-
     anima.SetBool("isRun", false);
     anima.SetBool("isFall", false);
     anima.SetBool("isRise", false);
     anima.SetBool("isClimb", false);
     anima.SetBool("isClimbIdle", false);
     anima.SetTrigger("dying");
-    
    }
+
+   EndGame();
 }
 
 
 //Rewind
 void OnDeathRewind(){
-  if (!isAlive && myPlayerState.deathRewindCount > 0 && isRevivable) {
+  if (!isAlive && isRevivable) {
     
      myPlayerState.deathRewindCount--;
      myPlayerState.currHealth = 50;
@@ -545,6 +555,16 @@ void Record(){
     }
     //playerVitals.Add(new KeyValuePair<float,float> (myPlayerState.currHealth, myPlayerState.currStamina));
     
+}
+
+
+void EndGame(){
+  if(!isAlive && !isRevivable){
+    inGameMenu.SetActive(false);
+    endMenu.SetActive(true);
+    endText.text = "You Died";
+  }
+
 }
 
 

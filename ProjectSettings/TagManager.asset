@@ -26,7 +26,7 @@ TagManager:
   - Attacks
   - SavePoints
   - Mana
-  - 
+  - Switch
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
   - name: Background
     uniqueID: 4068175343
     locked: 0
+  - name: Door
+    uniqueID: 1936517823
+    locked: 0
   - name: Water
     uniqueID: 528621533
     locked: 0
@@ -61,14 +64,14 @@ TagManager:
   - name: Ladder
     uniqueID: 703664483
     locked: 0
-  - name: Grass
-    uniqueID: 2255652503
-    locked: 0
   - name: Enemy
     uniqueID: 77782195
     locked: 0
   - name: Player
     uniqueID: 880784395
+    locked: 0
+  - name: Grass
+    uniqueID: 2255652503
     locked: 0
   - name: SavePoints
     uniqueID: 3298100211

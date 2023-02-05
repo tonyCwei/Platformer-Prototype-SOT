@@ -25,7 +25,7 @@ public class PlayerState : MonoBehaviour
         currHealth = maxHealth;
         currStamina = maxStamina;
         currEnergy = 0;
-        deathRewindCount = 5;
+        deathRewindCount = 1;
         
     }
 
