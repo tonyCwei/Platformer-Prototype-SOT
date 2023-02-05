@@ -103,7 +103,7 @@ public class ClothedMovement : MonoBehaviour
 
 
     void Die(){
-        if (currHealth <=0) {
+        if (currHealth <=0 || myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"))) {
             isAlive = false;
             healthBar.SetActive(false);
             //mySpriteRenderer.color = Color.white;
@@ -114,11 +114,7 @@ public class ClothedMovement : MonoBehaviour
             Destroy(GetComponent<BoxCollider2D>());
             deathposition = transform.position;
             deathRotation = transform.rotation;
-
             StartCoroutine(SpawnGhost());
-            
-            
-            
             }
     }
 

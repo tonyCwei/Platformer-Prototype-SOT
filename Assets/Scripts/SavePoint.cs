@@ -45,7 +45,7 @@ public class SavePoint : MonoBehaviour
 
          inGameMenu.SetActive(false);
          endGameMenu.SetActive(true);
-         endText.text = "Nicely Done!";
+         endText.text = "Awesome!";
          }
     }
 

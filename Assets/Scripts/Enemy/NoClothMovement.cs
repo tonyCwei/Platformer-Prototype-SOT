@@ -96,7 +96,7 @@ public class NoClothMovement : MonoBehaviour
 
 
     void Die(){
-        if (currHealth <=0) {
+        if (currHealth <=0 || myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"))) {
             isAlive = false;
             healthBar.SetActive(false);
             mySpriteRenderer.color = Color.white;
@@ -108,10 +108,7 @@ public class NoClothMovement : MonoBehaviour
             StartCoroutine(SpawnMana());
             }
 
-         if (myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")))  {
-          myAnimator.SetTrigger("dying");
-          Destroy(gameObject,0.9f);
-         }  
+          
         
     }
 
