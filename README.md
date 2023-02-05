@@ -1,14 +1,16 @@
 # Platformer-Prototype-SOT
 
-Movement: W,S,A,D
+## [Play](https://tonywei.itch.io/sot?secret=vMm6wDGWkcA3rEpPiEmKmy62M2U) the game
 
-Light Attack: J
+**Movement:** W,S,A,D
 
-Heavy Attack: K
+**Light Attack:** J
 
-Dash: L
+**Heavy Attack:** K
 
-Time Warp: R
+**Dash:** L
+
+**Time Warp:** R
 
 Reach the camp fire at the end! Keep an eye out for a suspicious torch.
 
