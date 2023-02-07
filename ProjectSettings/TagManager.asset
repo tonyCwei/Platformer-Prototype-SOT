@@ -58,11 +58,11 @@ TagManager:
   - name: Hazards
     uniqueID: 894303983
     locked: 0
-  - name: Platform
-    uniqueID: 983224043
-    locked: 0
   - name: Ladder
     uniqueID: 703664483
+    locked: 0
+  - name: Platform
+    uniqueID: 983224043
     locked: 0
   - name: Enemy
     uniqueID: 77782195
