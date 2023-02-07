@@ -155,23 +155,6 @@ public class GhostMovement : MonoBehaviour
         if (other.tag == "LightAttack" || other.tag == "HeavyAttack") {        
             isRage = true;
             healthBar.SetActive(true);
-            //  if (moveSpeed>0) {
-            //    moveSpeed += 0.5f;
-            // } else {
-            //     moveSpeed -= 0.5f;
-            // }
-
-
-
-            // if (other.tag == "LightAttack") {
-            // currHealth -= 20;
-            // if(currHealth <=0) {return;}
-            // StartCoroutine(LightHit());
-            // } else {
-            //   currHealth -= 40;
-            // if(currHealth <=0) {return;}
-            // StartCoroutine(HeavyHit());
-            // }
 
           switch(other.tag) {
             case "LightAttack":
@@ -186,12 +169,6 @@ public class GhostMovement : MonoBehaviour
             StartCoroutine(HeavyHit());
             break;
           }
-
-
-
-         
-
-           
 
         }
     }

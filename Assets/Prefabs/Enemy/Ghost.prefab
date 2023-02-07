@@ -584,7 +584,7 @@ MonoBehaviour:
   currHealth: 0
   healthBar: {fileID: 1862348227855209662}
   slider: {fileID: 2977732499149785515}
-  hitDuration: 1
+  hitDuration: 0.5
   myPlayerMovement: {fileID: 0}
   myManaOrb: {fileID: 8499732223685425918, guid: cd5b9c4637728ef49bde91ec7434e22b, type: 3}
   isAlive: 1
