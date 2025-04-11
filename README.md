@@ -16,16 +16,6 @@ Just like in *The Sands of Time*, the player can consume energy to rewind time, 
   <em>Time Rewind</em>
 </p>
 
-### Animation
-
-The animator controller as a Finite State Machine(FSM) I created for character animation
-
-<p align="center">
-  <img src="gifs/Animator.gif" width="100%">
-  <br>
-  <em>Animator</em>
-</p>
-
 The player's position is constantly recorded and stored in a list (`positions`). Here's a breakdown of how the system operates:
 
 - **While not rewinding**:  
@@ -37,3 +27,14 @@ The player's position is constantly recorded and stored in a list (`positions`).
 Rewind ends either when:
 - The position list becomes empty, or
 - The player's energy is depleted.
+
+### Animation
+
+The animator controller as a Finite State Machine(FSM) I created for character animation
+
+<p align="center">
+  <img src="gifs/Animator.gif" width="100%">
+  <br>
+  <em>Animator</em>
+</p>
+
