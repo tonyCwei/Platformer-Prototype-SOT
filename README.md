@@ -1,21 +1,15 @@
 # Platformer-Prototype-SOT
 
-## [Play](https://tonywei.itch.io/sot?secret=vMm6wDGWkcA3rEpPiEmKmy62M2U) the game
+Inspired by Prince of Persia: The Sands of Time on the Nintendo Game Boy Advance SP, I created a similar system that allows the player to rewind time to solve puzzles.
 
-**Movement:** W,S,A,D
+[![itch.io Version](https://img.shields.io/badge/Play%20on-itch.io-FA5C5C.svg?logoWidth=150)](https://frigidough.itch.io/sot)  
 
-**Light Attack:** J
+## Highlights
 
-**Heavy Attack:** K
+### Time Rewind
 
-**Dash:** L
-
-**Time Warp:** R
-
-Reach the camp fire at the end! Keep an eye out for a suspicious torch.
-
-Time Warp consumes energy, kill enemy to collect energy orb.
-
-Press R to live ONCE more after death.
-
-Spikes kill you for good!
+<p align="center">
+  <img src="gifs/Time.gif" width="100%">
+  <br>
+  <em>Time Rewind</em>
+</p>
