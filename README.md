@@ -8,6 +8,8 @@ Inspired by Prince of Persia: The Sands of Time on the Nintendo Game Boy Advance
 
 ### Time Rewind
 
+Just like in *The Sands of Time*, the player can consume energy to rewind time, solving platforming puzzles.
+
 <p align="center">
   <img src="gifs/Time.gif" width="100%">
   <br>
