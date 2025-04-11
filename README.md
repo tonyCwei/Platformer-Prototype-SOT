@@ -38,3 +38,28 @@ The animator controller as a Finite State Machine(FSM) I created for character a
   <em>Animator</em>
 </p>
 
+### Attacks
+
+The player can perform light attacks, heavy attacks, and dodge rolls, which all consume stamina.
+
+<p align="center">
+  <img src="gifs/Attacks.jpg" width="100%">
+  <br>
+  <em>Attacks</em>
+</p>
+
+### Revive
+
+The player can revive once if downed by an enemy, using time rewind ability(Press R). Revival is not possible if killed by hazards(spikes).
+
+<p align="center">
+  <img src="gifs/Revive.jpg" width="100%">
+  <br>
+  <em>Revive</em>
+</p>
+
+<p align="center">
+  <img src="gifs/Spikes.jpg" width="100%">
+  <br>
+  <em>Spikes</em>
+</p>
