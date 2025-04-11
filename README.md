@@ -33,7 +33,7 @@ Rewind ends either when:
 The animator controller as a Finite State Machine(FSM) I created for character animation
 
 <p align="center">
-  <img src="gifs/Animator.gif" width="100%">
+  <img src="gifs/Animator.jpg" width="100%">
   <br>
   <em>Animator</em>
 </p>
