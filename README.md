@@ -40,7 +40,7 @@ The animator controller as a Finite State Machine(FSM) I created for character a
 
 ### Attacks
 
-The player can perform light attacks, heavy attacks, and dodge rolls, which all consume stamina.
+The player can perform light attacks and heavy attacks, which all consume stamina.
 
 <p align="center">
   <img src="gifs/Attacks.gif" width="100%">
