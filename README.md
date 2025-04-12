@@ -48,6 +48,16 @@ The player can perform light attacks and heavy attacks, which all consume stamin
   <em>Attacks</em>
 </p>
 
+### Dodge
+
+The player is invincible while dodge rolling.
+
+<p align="center">
+  <img src="gifs/Dodge.gif" width="100%">
+  <br>
+  <em>Dodge</em>
+</p>
+
 ### Revive
 
 The player can revive once if downed by an enemy, using time rewind ability(Press R). Revival is not possible if killed by hazards(spikes).
